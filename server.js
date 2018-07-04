@@ -83,8 +83,8 @@ app.get('/hr'),function (req,res){
     initDb(function(err){});
   }
   if (db) {
-    
-    res.send(db.collection('hr').find({}));
+    const result = (db.collection('hr').find({}));
+    res.send(result);
   }
 }
 
