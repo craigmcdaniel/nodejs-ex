@@ -292,8 +292,8 @@
         "ports": [
           {
             "name": "mongodb",
-            "port": 27017,
-            "targetPort": 27017
+            "port": 28017,
+            "targetPort": 28017
           }
         ],
         "selector": {
