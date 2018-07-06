@@ -336,7 +336,7 @@
                 "image": " ",
                 "ports": [
                   {
-                    "containerPort": 27017
+                    "containerPort": 28017
                   }
                 ],
                 "env": [
@@ -380,7 +380,7 @@
                       "/bin/sh",
                       "-i",
                       "-c",
-                      "mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval=\"quit()\""
+                      "mongo 127.0.0.1:28017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval=\"quit()\""
                     ]
                   }
                 },
@@ -388,7 +388,7 @@
                   "timeoutSeconds": 1,
                   "initialDelaySeconds": 30,
                   "tcpSocket": {
-                    "port": 27017
+                    "port": 28017
                   }
                 },
                 "resources": {
