@@ -54,7 +54,7 @@ var initDb = function(callback) {
 
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
-};us
+};
 
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
@@ -77,16 +77,20 @@ app.get('/', function (req, res) {
   }
 });
 
-app.get('/hr'),function (req,res){
-
+app.get('/hr'), function (req, res) {
+  // try to initialize the db on every request if it's not already
+  // initialized.
   if (!db) {
     initDb(function(err){});
   }
   if (db) {
-    const result = (db.collection('hr').find({}));
-    res.send(result);
+    db.collection('hr').count(function(err, count ){
+      res.send('{ records: ' + count + '}');
+    });
+  } else {
+    res.send('{ records: -1 }');
   }
-}
+});
 
 app.get('/pagecount', function (req, res) {
   // try to initialize the db on every request if it's not already
